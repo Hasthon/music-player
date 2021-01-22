@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Footer } from './footer'
 
 
@@ -18,7 +18,10 @@ export const Playlist = () => {
     const setSingleSong = (url, index) => {
         audioRef.src = `https://assets.breatheco.de/apis/sound/${url}`;
         SetSongsActive(index)
-        
+
+
+      
+
     }
 
 
@@ -42,26 +45,45 @@ export const Playlist = () => {
         audioRef.pause();
 
     }
+    let fetchLista =()=>{
+        fetch("https://assets.breatheco.de/apis/sound/songs")
+        .then((respuesta)=>{
+            return respuesta.json();
+        })
+        .then((data)=>{
+            setSongs((prevstate)=>{
+                return data;
+            });
+        })
+        .catch((error) =>{
+            console.log(error);
+        });
+    };
+    useEffect(()=>{
+        fetchLista();
+    },[]);    
 
 
     return (
         <>
-            <div className="container">
+            <div className="container3">
                 <div className="row">
-                    <div className="col-12">
-                        <ul className="list-group ">
+                    <div className="col-md-12">
+                        <ol className="lista">
                             {
                                 songs.map((song, index) => {
-                                    return <li key={song.id} className={"list-group-item list-group-item-action " + (songActive === index ? "active" : "")}
+                                    return <li value="0" key={song.id} className={"list-group-item list-group-item-action" + (songActive === index ? "active" : "")}
                                         onClick={() => setSingleSong(song.url, index)}>
                                         {song.name}</li>
                                 })
                             }
-                        </ul>
-                        <audio ref={r => audioRef = r} />
+                        </ol>
                     </div>
                 </div>
             </div>
+            <audio ref={r => audioRef = r} />
+
+
 
 
             <Footer onPlay={play} onNext={next} onPrev={prev} onStop={stop} />

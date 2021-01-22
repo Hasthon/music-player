@@ -1,17 +1,63 @@
 
-.botones {
+.footer {
   position: fixed;
   display: flex;
   justify-content: space-between;
   bottom: 0;
   height: 65px;
   width: 100%;
-  background-color: #10C0C8;
+  background-color: #2B3232;
   padding: 20px;
-  margin-right: none;
+
 };
+
+.fa-step-backward, .fa-play, .fa-pause-circle, .fa-step-forward{
+  color:blanchedalmond;
+
+}
+
+.btn{
+  color:white;
+  margin-left: 100px;
+}
 
 .list-group{
   cursor: pointer;
-  padding: none;
+ 
+
 }
+.list-group-item-action{
+  background-color: teal;
+  color: white;
+}
+
+.btn1{
+ margin-left: none;
+ margin-right: 0px;
+}
+
+.btn2{
+  margin-left: 0px;
+  margin-right: 0px;
+ }
+ .btn3{
+  margin-left: 0px;
+  margin-right: 0px;
+ }
+ .btn4{
+  margin-left: 0px;
+  margin-right: 0px;
+ }
+
+ .col-md-12{
+   padding-left: 0px;
+   padding-right:0px;
+ }
+ .lista{
+   padding-left:20px;
+   padding-right: 0px;
+
+ }
+ .container3{
+   margin-left:0px;
+ }

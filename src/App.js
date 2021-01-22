@@ -5,9 +5,7 @@ import { Playlist } from './playlist';
 
 function App() {
   return (
-   
       <Playlist />
- 
   );
 }
 
